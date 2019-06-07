@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Wind turbine support system</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="row list" fxFlexFill fxLayoutAlign="flex-start" fxLayoutGap="20px">
+  <app-wind-turbine-item
+    class="item"
+    fxFlex="30"
+    *ngFor="let turbine of turbines"
+    [item]="turbine"
+    (onUpdated)="onItemUpdated($event)"
+    (onDeleted)="onItemDeleted($event)"></app-wind-turbine-item>
+</div>
+
+<button class="add-new-item" mat-fab color="primary" (click)="addNewItem()">
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,0 +1,16 @@
+.list {
+  padding-top: 20px;
+  padding-left: 2%;
+  padding-right: 2%;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin-bottom: 20px;
+}
+
+.add-new-item {
+  position: fixed;
+  bottom: 24px;
+  right: 30px;
+}

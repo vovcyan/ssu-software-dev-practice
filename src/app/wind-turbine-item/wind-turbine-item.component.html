@@ -1,0 +1,40 @@
+<mat-card class="card row">
+  <mat-card-title class="row" fxLayoutAlign="space-between center">
+    <span *ngIf="!isEditMode">{{windTurbine.name}}</span>
+    <mat-form-field *ngIf="isEditMode">
+      <input matInput placeholder="Name" [(ngModel)]="windTurbine.name">
+    </mat-form-field>
+    <button mat-icon-button *ngIf="!isEditMode" (click)="onEdit()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-title>
+  <mat-card-subtitle>ID: {{windTurbine.id}}</mat-card-subtitle>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput placeholder="Speed" [(ngModel)]="windTurbine.speed" [disabled]="!isEditMode">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Power" [(ngModel)]="windTurbine.power" [disabled]="!isEditMode">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Direction</mat-label>
+      <mat-select [(ngModel)]="windTurbine.direction" [disabled]="!isEditMode">
+        <mat-option value="North">North</mat-option>
+        <mat-option value="South">South</mat-option>
+        <mat-option value="West">West</mat-option>
+        <mat-option value="East">East</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="row">
+      <mat-checkbox [(ngModel)]="windTurbine.enabled" [disabled]="!isEditMode">Enabled</mat-checkbox>
+    </div>
+  </mat-card-content>
+  <mat-card-actions *ngIf="isEditMode">
+    <button mat-button (click)="onCancel()">CANCEL</button>
+    <button mat-button (click)="onSave()">SAVE</button>
+    <button mat-button (click)="onDelete()">DELETE</button>
+  </mat-card-actions>
+</mat-card>
